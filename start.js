@@ -15,12 +15,7 @@
 // DOES NOT WARRANT THAT THE OPERATION OF THE PROGRAM WILL BE
 // UNINTERRUPTED OR ERROR FREE.
 /////////////////////////////////////////////////////////////////////
-let data = [
-  { dbid: 2448, closed: false, locked: false },
-  { dbid: 2447, closed: false, locked: false },
-  { dbid: 2442, closed: false, locked: false },
-  { dbid: 2470, closed: false, locked: false },
-];
+
 const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -47,6 +42,12 @@ app.use("/api/forge/oauth", require("./routes/oauth"));
 app.use("/api/forge/oss", require("./routes/oss"));
 app.use("/api/forge/modelderivative", require("./routes/modelderivative"));
 app.post("/sensors", function (req, res) {
+  let data = [
+    { dbid: 2448, closed: false, locked: false },
+    { dbid: 2447, closed: false, locked: false },
+    { dbid: 2442, closed: false, locked: false },
+    { dbid: 2470, closed: false, locked: false },
+  ];
   data = req.body;
   res.status(200).end();
   console.log(req.body);
